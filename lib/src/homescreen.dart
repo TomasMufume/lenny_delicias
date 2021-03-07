@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lenny_delicias/src/widgets/food_category.dart';
+import 'package:lenny_delicias/src/widgets/search_field.dart';
 import 'widgets/home_top_info.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -17,6 +18,8 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           HomeTopInfo(),
           FoodCategory(),
+          SizedBox(height: 10,),
+          SearchField(),
         ],
       ),
     );

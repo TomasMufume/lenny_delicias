@@ -8,7 +8,7 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Lenny Delícias",
       theme: ThemeData(
-          primaryColor: Colors.amber
+          primaryColor: Colors.pink
       ),
       home: HomeScreen(),
     );
