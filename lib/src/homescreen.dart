@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lenny_delicias/src/data/food_data.dart';
 import 'package:lenny_delicias/src/widgets/bought_foods.dart';
 import 'package:lenny_delicias/src/widgets/food_category.dart';
 import 'package:lenny_delicias/src/widgets/search_field.dart';
@@ -11,6 +12,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  List<Food> _foods = foods;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,11 +36,26 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
           SizedBox(height: 20),
-          Container(
-            child: BoughtFoods(),
-          ),
+         Column(
+           children: _foods.map(_buildFoodItems).toList(),
+         ),
 
         ],
+      ),
+    );
+  }
+  Widget _buildFoodItems(Food food){
+    return Container(
+      margin: EdgeInsets.only(bottom: 20),
+      child: BoughtFoods(
+        id: food.id,
+        name: food.name,
+        imagePath: food.imagePath,
+        category: food.category,
+        discount: food.discount,
+        price: food.price,
+        ratings: food.ratings,
+
       ),
     );
   }

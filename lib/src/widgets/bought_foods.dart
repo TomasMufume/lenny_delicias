@@ -1,11 +1,23 @@
 import 'package:flutter/material.dart';
 
 class BoughtFoods extends StatefulWidget {
+
+  final String id;
+  final String name;
+  final String imagePath;
+  final String category;
+  final double price;
+  final double discount;
+  final double ratings;
+
+  BoughtFoods({this.id, this.name, this.imagePath, this.category,
+      this.price, this.discount, this.ratings});
   @override
   _BoughtFoodsState createState() => _BoughtFoodsState();
 }
 
 class _BoughtFoodsState extends State<BoughtFoods> {
+
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -15,7 +27,7 @@ class _BoughtFoodsState extends State<BoughtFoods> {
           Container(
             height: 200,
             width: 340,
-            child: Image.asset("assets/images/bolo.jpg",fit: BoxFit.cover,),
+            child: Image.asset(widget.imagePath,fit: BoxFit.cover,),
           ),
           Positioned(
             left: 0,
@@ -44,7 +56,7 @@ class _BoughtFoodsState extends State<BoughtFoods> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Bolo de Chocolate",
+                    Text(widget.name,
                     style: TextStyle(
                       color: Colors.white, fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -57,7 +69,7 @@ class _BoughtFoodsState extends State<BoughtFoods> {
                         Icon(Icons.star, color: Theme.of(context).primaryColor, size: 16),
                         Icon(Icons.star, color: Theme.of(context).primaryColor, size: 16),
                         SizedBox(width: 10,),
-                        Text("(22 Avaliações)", style: TextStyle(
+                        Text("("+widget.ratings.toString()+" Avaliações", style: TextStyle(
                           color: Colors.white70,
                         ),),
                       ],
@@ -66,7 +78,7 @@ class _BoughtFoodsState extends State<BoughtFoods> {
                 ),
                 Column(
                   children: [
-                    Text("1500", style: TextStyle(
+                    Text(widget.price.toString(), style: TextStyle(
                         fontWeight: FontWeight.bold, color: Colors.orangeAccent)),
                     Text("MZN", style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.white70
