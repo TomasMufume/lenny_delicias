@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lenny_delicias/src/widgets/bought_foods.dart';
 import 'package:lenny_delicias/src/widgets/food_category.dart';
 import 'package:lenny_delicias/src/widgets/search_field.dart';
 import 'widgets/home_top_info.dart';
@@ -20,6 +21,22 @@ class _HomeScreenState extends State<HomeScreen> {
           FoodCategory(),
           SizedBox(height: 10,),
           SearchField(),
+          SizedBox(height: 20,),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("Mais Populares", style:  TextStyle( fontSize: 18, fontWeight: FontWeight.bold),),
+              GestureDetector(
+                  onTap: () {},
+                  child: Text("Listar tudo",style:  TextStyle( fontSize: 18, fontWeight: FontWeight.bold, color: Colors.pink)))
+            ],
+          ),
+          SizedBox(height: 20),
+          Container(
+            child: BoughtFoods(),
+          ),
+
         ],
       ),
     );
